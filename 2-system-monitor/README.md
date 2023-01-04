@@ -1,6 +1,6 @@
 # CppND-System-Monitor Implementation
 
-Possible implementation for the CppND-System-Monitor. 
+This is my implementation for the CppND-System-Monitor. 
 
 # How-to use
 
