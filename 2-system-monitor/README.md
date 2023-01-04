@@ -6,7 +6,7 @@ This is my implementation of the CppMD-Syste-Monitor for the 2. excercise of the
 
 1. Build the project: `make build`
 
-2. There are two options to launch the executable:
+2. There are two options to launch the executable:<br />
   a: normal mode: `./build/monitor`
       <figure>
         <img 
@@ -14,7 +14,6 @@ This is my implementation of the CppMD-Syste-Monitor for the 2. excercise of the
          title="System-Monitor as given in the excercise task" 
          />
       </figure>
-
   b: extended information mode: `./build/monitor -i`
       <figure>
         <img 
