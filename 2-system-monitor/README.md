@@ -11,9 +11,20 @@ This is my implementation of the CppMD-Syste-Monitor for the 2. excercise of the
     b. information mode extended to the excercise: `./build/monitor -i`
 
     <figure>
-      <img src='images/monitor_normal_mode.png' title="System-Monitor as given in the excercise task" />
+      <img 
+       src='images/monitor_normal_mode.png' 
+       title="System-Monitor as given in the excercise task" 
+       />
+      
+      <figcaption>System-Monitor as given in the excercise task</figcaption>
     </figure>
-(images/monitor_normal_mode.png)
 
 
-![System Monitor in information mode](images/monitor_information_mode.png)
+    <figure>
+      <img 
+       src='images/monitor_information_mode.png' 
+       title="System-Monitor with extended information" 
+       />
+      
+      <figcaption>System-Monitor with extended information</figcaption>
+    </figure>
