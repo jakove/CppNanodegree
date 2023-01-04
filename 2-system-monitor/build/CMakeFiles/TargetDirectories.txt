@@ -1,3 +1,0 @@
-/home/jakob/Documents/git/CppNanodegree/1-system-monitor/build/CMakeFiles/monitor.dir
-/home/jakob/Documents/git/CppNanodegree/1-system-monitor/build/CMakeFiles/edit_cache.dir
-/home/jakob/Documents/git/CppNanodegree/1-system-monitor/build/CMakeFiles/rebuild_cache.dir
