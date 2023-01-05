@@ -214,18 +214,14 @@ vector<float> LinuxParser::CpuUtilization(const std::string &cpu_id)
 int LinuxParser::TotalProcesses()
 {
   string stat_path = kProcDirectory + kStatFilename;
-  auto total_processes =
-      LinuxParser::ParseFileForKey<int>(stat_path, "processes");
-  return total_processes;
+  return LinuxParser::ParseFileForKey<int>(stat_path, "processes");;
 }
 
 // TODO: Read and return the number of running processes
 int LinuxParser::RunningProcesses()
 {
   string stat_path = kProcDirectory + kStatFilename;
-  auto total_processes =
-      LinuxParser::ParseFileForKey<int>(stat_path, "procs_running");
-  return total_processes;
+  return LinuxParser::ParseFileForKey<int>(stat_path, "procs_running");;
 }
 
 // TODO: Read and return the command associated with a process
