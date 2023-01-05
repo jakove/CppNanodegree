@@ -150,7 +150,6 @@ long LinuxParser::ActiveJiffies(const std::string &cpu_id)
   auto cpu_data = LinuxParser::CpuUtilization(cpu_id);
   return cpu_data[kUser_] + cpu_data[kNice_] + cpu_data[kSystem_] +
          cpu_data[kIRQ_] + cpu_data[kSoftIRQ_] + cpu_data[kSteal_];
-  ;
 }
 
 // TODO: Read and return the number of idle jiffies for the system
