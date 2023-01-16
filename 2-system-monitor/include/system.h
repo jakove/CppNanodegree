@@ -22,6 +22,7 @@ class System {
  private:
   Processor cpu_ = {Processor::Mode::kStandard};
   std::vector<Process> processes_ = {};
+  int rounds_ = 0;
 };
 
 #endif

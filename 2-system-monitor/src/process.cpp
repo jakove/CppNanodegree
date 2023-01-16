@@ -1,7 +1,6 @@
 #include "process.h"
 
 #include <unistd.h>
-
 #include <cctype>
 #include <sstream>
 #include <string>
@@ -69,6 +68,7 @@ double Process::CalculateCpuUtilization() {
 void Process::Update() {
   cpu_utilization_ = CalculateCpuUtilization();
   ram_ = LinuxParser::Ram(pid_);
+  updated_ = true;
 }
 
 bool Process::HasUpdated() {

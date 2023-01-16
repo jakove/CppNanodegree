@@ -18,66 +18,93 @@ using std::vector;
 You need to properly format the uptime. Refer to the comments mentioned in format. cpp for formatting the uptime.*/
 
 // TODO: Return the system's CPU
-Processor& System::Cpu() { 
-    return cpu_; 
+Processor &System::Cpu()
+{
+    return cpu_;
 }
 
 // TODO: Return a container composed of the system's processes
-vector<Process>& System::Processes() { 
-    const auto& pids = LinuxParser::Pids(); 
-    for(const auto& pid : pids) {
+vector<Process> &System::Processes()
+{
+    const auto &pids = LinuxParser::Pids();
+    for (const auto &pid : pids)
+    {
         // check if pid is an old process
-        const auto it = std::find_if(processes_.begin(), processes_.end(), 
-            [pid](Process& this_process) {return this_process.Pid() == pid; });
-        
-        if(it != processes_.end()) {        
+        const auto it = std::find_if(processes_.begin(), processes_.end(),
+                                     [pid](Process &this_process)
+                                     { return this_process.Pid() == pid; });
+        if (it != processes_.end())
+        {
             it->Update();
         }
-        else {
+        else
+        {
             Process new_process(pid);
-            if(new_process.Command() != "") {
+            if (new_process.Command() != "")
+            {
                 processes_.push_back(new_process);
             }
         }
     }
-    // loop over all processes and check if it was updated since last call.
-    // if not the process isn't active anymore
-    for(auto it = processes_.begin(); it != processes_.end(); it++) {
-        if(!it->HasUpdated()) {
-            processes_.erase(it);
+    // after round about 60 seconds loop over all processes and check if it was updated since last call.
+    if (rounds_ >= 60)
+    {
+        // if not the process isn't active anymore so it has to be erased from the list
+        std::vector<std::vector<Process>::iterator> to_erase;
+        for (auto it = processes_.begin(); it != processes_.end(); it++)
+        {
+            if (!it->HasUpdated())
+            {
+                to_erase.push_back(it);
+            }
         }
+
+        for (const auto &erase_it : to_erase)
+        {
+            processes_.erase(erase_it);
+        }
+        rounds_ = 0;
     }
-    // sort cpuutilization descending 
-    std::sort(processes_.begin(), processes_.end(), [](const Process& a, const Process& b) {return a > b; });
-    return processes_; 
+    // sort cpuutilization descending
+    std::sort(processes_.begin(), processes_.end(), [](const Process &a, const Process &b)
+              { return a > b; });
+
+    rounds_++;
+    return processes_;
 }
 
 // TODO: Return the system's kernel identifier (string)
-std::string System::Kernel() {  
-    return LinuxParser::Kernel(); 
+std::string System::Kernel()
+{
+    return LinuxParser::Kernel();
 }
 
 // TODO: Return the system's memory utilization
-float System::MemoryUtilization() { 
-    return LinuxParser::MemoryUtilization(); 
+float System::MemoryUtilization()
+{
+    return LinuxParser::MemoryUtilization();
 }
 
 // TODO: Return the operating system name
-std::string System::OperatingSystem() { 
-    return LinuxParser::OperatingSystem();     
+std::string System::OperatingSystem()
+{
+    return LinuxParser::OperatingSystem();
 }
 
 // TODO: Return the number of processes actively running on the system
-int System::RunningProcesses() { 
-    return LinuxParser::RunningProcesses(); 
+int System::RunningProcesses()
+{
+    return LinuxParser::RunningProcesses();
 }
 
 // TODO: Return the total number of processes on the system
-int System::TotalProcesses() { 
-    return LinuxParser::TotalProcesses(); 
+int System::TotalProcesses()
+{
+    return LinuxParser::TotalProcesses();
 }
 
 // TODO: Return the number of seconds since the system started running
-long int System::UpTime() { 
-    return LinuxParser::UpTime(); 
+long int System::UpTime()
+{
+    return LinuxParser::UpTime();
 }
