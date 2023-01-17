@@ -18,6 +18,12 @@ namespace LinuxParser
   const std::string kVersionFilename{"/version"};
   const std::string kOSPath{"/etc/os-release"};
   const std::string kPasswordPath{"/etc/passwd"};
+  const std::string kMemTotal{"MemTotal:"};
+  const std::string kMemAvailablele("MemAvailable:");
+  const std::string kProcesses("processes");
+  const std::string kProcsRunning{"procs_running"};
+  const std::string kMemory{"VmRSS"};
+  const std::string kUid{"Uid:"};
 
   // System
   float MemoryUtilization();

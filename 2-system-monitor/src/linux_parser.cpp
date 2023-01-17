@@ -80,9 +80,9 @@ float LinuxParser::MemoryUtilization()
 {
   string memfile_path = kProcDirectory + kMeminfoFilename;
   auto mem_total =
-      LinuxParser::ParseFileForKey<float>(memfile_path, "MemTotal:");
+      LinuxParser::ParseFileForKey<float>(memfile_path, kMemTotal);
   auto mem_free =
-      LinuxParser::ParseFileForKey<float>(memfile_path, "MemAvailable:");
+      LinuxParser::ParseFileForKey<float>(memfile_path, kMemAvailablele);
   return (mem_total - mem_free) / mem_total;
 }
 
@@ -103,7 +103,7 @@ long LinuxParser::UpTime()
 
 long LinuxParser::ActiveJiffies(int pid)
 {
-  std::string path = kProcDirectory + std::to_string(pid) + "/stat";
+  std::string path = kProcDirectory + std::to_string(pid) + kStatFilename;
   std::ifstream stat_file(path);
   if (stat_file.is_open())
   {
@@ -201,20 +201,20 @@ vector<float> LinuxParser::CpuUtilization(const std::string &cpu_id)
 int LinuxParser::TotalProcesses()
 {
   string stat_path = kProcDirectory + kStatFilename;
-  return LinuxParser::ParseFileForKey<int>(stat_path, "processes");
+  return LinuxParser::ParseFileForKey<int>(stat_path, kProcesses);
   ;
 }
 
 int LinuxParser::RunningProcesses()
 {
   string stat_path = kProcDirectory + kStatFilename;
-  return LinuxParser::ParseFileForKey<int>(stat_path, "procs_running");
+  return LinuxParser::ParseFileForKey<int>(stat_path, kProcsRunning);
   ;
 }
 
 string LinuxParser::Command(int pid)
 {
-  std::string path = kProcDirectory + std::to_string(pid) + "/cmdline";
+  std::string path = kProcDirectory + std::to_string(pid) + kCmdlineFilename;
   std::ifstream cmd_file(path);
   if (cmd_file.is_open())
   {
@@ -234,7 +234,7 @@ string LinuxParser::Ram(int pid)
 {
   std::string path = kProcDirectory + to_string(pid) + kStatusFilename;
   // use VmRSS instead of VmSize to get the real memory footprint and not the virtual memory
-  double memory = ParseFileForKey<double>(path, "VmRSS:");
+  double memory = ParseFileForKey<double>(path, kMemory);
   memory *= 0.0009765625;
   std::stringstream memory_ss;
   memory_ss << std::fixed << std::setprecision(1) << memory;
@@ -243,9 +243,8 @@ string LinuxParser::Ram(int pid)
 
 string LinuxParser::Uid(int pid)
 {
-  std::string file_path = kProcDirectory + std::to_string(pid) + "/status";
-  return ParseFileForKey<std::string>(file_path, "Uid:");
-  ;
+  std::string file_path = kProcDirectory + std::to_string(pid) + kStatusFilename;
+  return ParseFileForKey<std::string>(file_path, kUid);
 }
 
 // TODO: Read and return the user associated with a process
@@ -271,7 +270,7 @@ string LinuxParser::User(int pid)
 
 long LinuxParser::UpTime(int pid)
 {
-  std::string path = kProcDirectory + std::to_string(pid) + "/stat";
+  std::string path = kProcDirectory + std::to_string(pid) + kStatFilename;
   std::ifstream stat_file(path);
   if (stat_file.is_open())
   {
