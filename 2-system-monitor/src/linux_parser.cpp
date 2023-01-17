@@ -258,7 +258,7 @@ string LinuxParser::User(int pid)
     std::string line;
     while (std::getline(pw_file, line))
     {
-      auto pos = line.find(uid + ":" + uid);
+      auto pos = line.find(uid + ":");
       if (pos != std::string::npos)
       {
         return line.substr(0, pos - 3);
