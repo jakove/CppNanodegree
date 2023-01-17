@@ -22,7 +22,7 @@ namespace LinuxParser
   const std::string kMemAvailablele("MemAvailable:");
   const std::string kProcesses("processes");
   const std::string kProcsRunning{"procs_running"};
-  const std::string kMemory{"VmRSS"};
+  const std::string kMemory{"VmRSS:"};
   const std::string kUid{"Uid:"};
 
   // System
