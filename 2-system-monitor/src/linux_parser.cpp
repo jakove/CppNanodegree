@@ -201,13 +201,15 @@ vector<float> LinuxParser::CpuUtilization(const std::string &cpu_id)
 int LinuxParser::TotalProcesses()
 {
   string stat_path = kProcDirectory + kStatFilename;
-  return LinuxParser::ParseFileForKey<int>(stat_path, "processes");;
+  return LinuxParser::ParseFileForKey<int>(stat_path, "processes");
+  ;
 }
 
 int LinuxParser::RunningProcesses()
 {
   string stat_path = kProcDirectory + kStatFilename;
-  return LinuxParser::ParseFileForKey<int>(stat_path, "procs_running");;
+  return LinuxParser::ParseFileForKey<int>(stat_path, "procs_running");
+  ;
 }
 
 string LinuxParser::Command(int pid)
@@ -241,7 +243,8 @@ string LinuxParser::Ram(int pid)
 string LinuxParser::Uid(int pid)
 {
   std::string file_path = kProcDirectory + std::to_string(pid) + "/status";
-  return ParseFileForKey<std::string>(file_path, "Uid:");;
+  return ParseFileForKey<std::string>(file_path, "Uid:");
+  ;
 }
 
 // TODO: Read and return the user associated with a process

@@ -3,11 +3,12 @@
 
 #include <string>
 
-namespace Format {
-std::string ElapsedTime(long times);  // TODO: See src/format.cpp
+namespace Format
+{
+    std::string ElapsedTime(long times);
 
-std::string AddLeadingZeros(const std::string& time_slice);
+    std::string AddLeadingZeros(const std::string &time_slice);
 
-};  // namespace Format
+}; // namespace Format
 
 #endif
