@@ -233,7 +233,8 @@ string LinuxParser::Command(int pid)
 string LinuxParser::Ram(int pid)
 {
   std::string path = kProcDirectory + to_string(pid) + kStatusFilename;
-  double memory = ParseFileForKey<double>(path, "VmSize:");
+  // use VmRSS instead of VmSize to get the real memory footprint and not the virtual memory
+  double memory = ParseFileForKey<double>(path, "VmRSS:");
   memory *= 0.0009765625;
   std::stringstream memory_ss;
   memory_ss << std::fixed << std::setprecision(1) << memory;
