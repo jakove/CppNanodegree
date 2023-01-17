@@ -261,7 +261,9 @@ string LinuxParser::User(int pid)
       auto pos = line.find(uid + ":");
       if (pos != std::string::npos)
       {
-        return line.substr(0, pos - 3);
+        std::string name = line.substr(0, pos - 3);
+        name = (name.size() <= 6) ? name : name.substr(0, 6);
+        return name;
       }
     }
   }
