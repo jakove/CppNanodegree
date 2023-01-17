@@ -17,7 +17,7 @@ Process::Process(int pid) : pid_{pid}
   std::string uid = LinuxParser::Uid(pid);
   user_ = LinuxParser::User(pid);
   command_ = LinuxParser::Command(pid);
-  uptime_ = LinuxParser::UpTime(pid);
+  uptime_ = LinuxParser::UpTime() - LinuxParser::UpTime(pid);
   cpu_utilization_ = CalculateCpuUtilization();
   ram_ = LinuxParser::Ram(pid);
 };
@@ -66,11 +66,13 @@ void Process::Update()
 {
   cpu_utilization_ = CalculateCpuUtilization();
   ram_ = LinuxParser::Ram(pid_);
+  uptime_ =  LinuxParser::UpTime() - LinuxParser::UpTime(pid_);
   updated_ = true;
 }
 
 bool Process::HasUpdated()
 {
+  // return if the process has been updated after the last call of this funnction
   bool status = updated_;
   updated_ = false;
   return status;
