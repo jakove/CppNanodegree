@@ -15,9 +15,7 @@ The code has been tested on Ubuntu 20.04 with the following additional dependenc
 1. Clone this repository
 2. Create a build directory in the top-level directory: `mkdir build && cd build`
 3. Compile the code : `cmake .. && make`
-4. Run the application:  `cd ./sudoku_gui`
-            `./SudokuUi`.
-
+4. Run the application:  `cd ./sudoku_gui && ./SudokuUi`.
 
 ## 3. Expected Behavior
 The objective of this project is to implement the logic of Sudoku with a user interface created using Qt5. The user can load predefined Sudoku puzzles and solve them interactively through the user interface. Additionally, the user can automatically solve the currently opened Sudoku board. The automatic solving algorithm is based on backtracking ([Sudoku solving algorithm: Backtracking](https://en.wikipedia.org/wiki/Sudoku_solving_algorithms#Backtracking)).
