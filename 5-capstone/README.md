@@ -49,24 +49,24 @@ Furthermore, the application allows loading photos of Sudoku puzzles. The implem
 - [imageprocessing.cpp](imageprocessing/imageprocessing.cpp) and [imageprocessing.h](imageprocessing/imageprocessing.h): Logic for image processing, extracting the Sudoku board, and digit recognition.
 
 ### There are also some less interesting helper files, such as:
-- sudoku_gui/include/level_handler.h and sudoku_gui/include/level_selector_ui.h: basic ui for loading and storing sudokus. 
-- sudoku_gui/include/style.h: styledefinitions for the ui
+- [level_handler.h](sudoku_gui/include/level_handler.h) and [level_selector.h](sudoku_gui/include/level_selector_ui.h): basic ui for loading and storing sudokus. 
+- [style.h](sudoku_gui/include/style.h): styledefinitions for the ui
 
 ### Additionally, there are some files that are not relevant to the C++ project itself but included for recreating the entire project:
-- training/python: includes all files for training the CNN which is used for number recognition (Not part) 
-- training/cpp: Files used for training.
-- resources/custom_dataset: Custom prepared dataset for fine-tuning the CNN.
-- resources/level: Example Sudokus.
-- resources/frozen_mnist_retrained.pb: Trained and frozen CNN used for digit recognition.
+- [training/python](training/python): includes all files for training the CNN which is used for number recognition (Not part) 
+- [training/cpp](training/cpp): Files used for training.
+- [custom_dataset](resources/custom_dataset): Custom prepared dataset for fine-tuning the CNN.
+- [Example sudokus](resources/level): Example Sudokus.
+- [Frozen CNN](resources/frozen_mnist_retrained.pb): Trained and frozen CNN used for digit recognition.
 
 
 ## 5. Rubric Points Addressed:
-- The project demonstrates an understanding of C++ functions and control structures: i.e. 'imageprocessing/imageprocessing.cpp' and 'sudoku/sudoku.cpp'
-- The project reads data from a file and process the data, or the program writes data to a file: 'sudoku/sudoku.cpp' Sudoku::LoadState and Sudoku::SaveState
-- The project uses Object Oriented Programming techniques: i.e. 'sudoku/sudoku.h' and 'sudoku/sudoku.cpp'
-- Classes use appropriate access specifiers for class members: i.e. 'sudoku/sudoku.h' and 'sudoku/sudoku.cpp'
-- Class constructors utilize member initialization lists: i.e. sudoku_gui/src/level_selector_ui.cpp `LevelSelectorUi::LevelSelectorUi`
-- The project makes use of references in function declarations: i.e. image_processing/imageprocessing.cpp `std::optional<int> GetBiggestNonBorderContour`
+- The project demonstrates an understanding of C++ functions and control structures: i.e. [imageprocessing.cpp](imageprocessing/imageprocessing.cpp) and [sudoku.cpp](sudoku/sudoku.cpp)
+- The project reads data from a file and process the data, or the program writes data to a file: [sudoku.cpp](sudoku/sudoku.cpp) `Sudoku::LoadState` and `Sudoku::SaveState`
+- The project uses Object Oriented Programming techniques: i.e. 'sudoku/sudoku.h' and [sudoku.cpp](sudoku/sudoku.cpp)
+- Classes use appropriate access specifiers for class members: i.e. [sudoku.h](sudoku/sudoku.h) and [sudoku.cpp](sudoku/sudoku.cpp)
+- Class constructors utilize member initialization lists: i.e. [level_selector_ui.cpp](sudoku_gui/src/level_selector_ui.cpp) `LevelSelectorUi::LevelSelectorUi`
+- The project makes use of references in function declarations: i.e. [imageprocessing.cpp](imageprocessing/imageprocessing.cpp) `std::optional<int> GetBiggestNonBorderContour`
 
 
 ## 6. References
