@@ -43,10 +43,10 @@ Furthermore, the application allows loading photos of Sudoku puzzles. The implem
 ## 4. Projectstructure
 ### The most important files in this repository are:
 
-- [main.cpp]('sudoku_gui/src/main.cpp'): Entry point for the executable.
-- [sudoku_solver_ui.cpp]('sudoku_gui/src/sudoku_solver_ui.cpp') and [sudoku_solver_ui.h]('sudoku_gui/include/sudoku_solver_ui.h'): Main logic for the Sudoku solver user interface.
-- [sudoku.cpp]('sudoku/sudoku.cpp') and [sudoku.h]('sudoku/sudoku.h'): Logic for handling Sudoku puzzles.
-- [imageprocessing.cpp]('imageprocessing/imageprocessing.cpp') and [imageprocessing.h]('imageprocessing/imageprocessing.h'): Logic for image processing, extracting the Sudoku board, and digit recognition.
+- [main.cpp](sudoku_gui/src/main.cpp): Entry point for the executable.
+- [sudoku_solver_ui.cpp](sudoku_gui/src/sudoku_solver_ui.cpp) and [sudoku_solver_ui.h](sudoku_gui/include/sudoku_solver_ui.h): Main logic for the Sudoku solver user interface.
+- [sudoku.cpp](sudoku/sudoku.cpp) and [sudoku.h](sudoku/sudoku.h): Logic for handling Sudoku puzzles.
+- [imageprocessing.cpp](imageprocessing/imageprocessing.cpp) and [imageprocessing.h](imageprocessing/imageprocessing.h): Logic for image processing, extracting the Sudoku board, and digit recognition.
 
 ### There are also some less interesting helper files, such as:
 - sudoku_gui/include/level_handler.h and sudoku_gui/include/level_selector_ui.h: basic ui for loading and storing sudokus. 
