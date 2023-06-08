@@ -57,7 +57,7 @@ Furthermore, the application allows loading photos of Sudoku puzzles. The implem
 - [training/cpp](training/cpp): Files used for training.
 - [custom_dataset](resources/custom_dataset): Custom prepared dataset for fine-tuning the CNN.
 - [Example sudokus](resources/level): Example Sudokus.
-- [Frozen CNN](resources/frozen_mnist_retrained.pb): Trained and frozen CNN used for digit recognition.
+- [Frozen CNN](resources/models/frozen_mnist_retrained.pb): Trained and frozen CNN used for digit recognition.
 
 
 ## 5. Rubric Points Addressed:
