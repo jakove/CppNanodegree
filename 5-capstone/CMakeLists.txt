@@ -6,42 +6,28 @@ set(CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
+list(APPEND CMAKE_MODULE_PATH ${CMAKE_BINARY_DIR})
+list(APPEND CMAKE_PREFIX_PATH ${CMAKE_BINARY_DIR})
+
+set(CMAKE_INCLUDE_CURRENT_DIR ON)
+
 # OR Using the "cmake_find_package" and "cmake_paths" generators
-include(${CMAKE_BINARY_DIR}/conan_paths.cmake)
 find_package(Qt5 COMPONENTS Widgets REQUIRED)
-find_package(OpenCV REQUIRED)
-include_directories( ${OpenCV_INCLUDE_DIRS} )
 
-message("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
-message("${OpenCV_INCLUDE_DIRS}")
+# potentionalle the OpenCV search path has to be reconfigured
+find_package(OpenCV REQUIRED PATHS "/home/jakob/repos/build/")
 
-set(CMAKE_AUTOMOC ON)
-set(CMAKE_AUTORCC ON)
-set(CMAKE_AUTOUIC ON)
+add_subdirectory("imageprocessing")
+add_subdirectory("sudoku")
+add_subdirectory("sudoku_gui")
 
-set(sources 
-    "src/SudokuSolver.ui"  
-    "src/LevelSelectorWindow.ui"
-    "src/main.cpp"
-    "src/board.cpp"
-    "src/SudokuSolver.cpp"
-    "src/LevelHandler.cpp"
-    "src/LevelSelectorWindow.cpp"
-    "src/SudokuDetector.cpp"
-)
+file(COPY ${CMAKE_CURRENT_SOURCE_DIR}/resources/models/frozen_mnist_retrained.pb DESTINATION ${CMAKE_BINARY_DIR}/sudoku_gui)
+file(COPY ${CMAKE_CURRENT_SOURCE_DIR}/resources/level DESTINATION ${CMAKE_BINARY_DIR}/sudoku_gui)
+file(COPY ${CMAKE_CURRENT_SOURCE_DIR}/resources/images/test DESTINATION ${CMAKE_BINARY_DIR}/sudoku_gui/images)
 
-# need to include explicitly header files. otherwise a linker error occures: https://github.com/bincrafters/community/issues/466
-set(sources 
-    ${sources}     
-    "include/SudokuSolver.h" 
-    "include/LevelSelectorWindow.h")
+set(BUILD_TRAINING OFF)
 
-add_executable("test_board" ${sources})
+if(BUILD_TRAINING)
+    add_subdirectory("training/cpp")    
+endif()
 
-target_link_libraries("test_board"
-    Qt5::Widgets
-    ${OpenCV_LIBS}
-)
-
-target_include_directories("test_board" PUBLIC 
-                           "include")
