@@ -180,7 +180,7 @@ namespace ImageProcessing
         return rois;
     }
 
-    int RecognizeNumber(const cv::Mat &input, cv::dnn::dnn4_v20221220::Net &model, const cv::Size& size, double scale_factor)
+    int RecognizeNumber(const cv::Mat &input, cv::dnn::Net &model, const cv::Size& size, double scale_factor)
     {
         cv::Mat input_mat;
         input.convertTo(input_mat, CV_32FC1);

@@ -24,7 +24,7 @@ namespace ImageProcessing
 
     std::optional<int> GetBiggestNonBorderContour(std::vector<std::vector<cv::Point>> &contours, int segment_width, int segment_height);
 
-    int RecognizeNumber(const cv::Mat &input, cv::dnn::dnn4_v20221220::Net &model, const cv::Size& size, double scale_factor);
+    int RecognizeNumber(const cv::Mat &input, cv::dnn::Net &model, const cv::Size& size, double scale_factor);
 
     void DrawPolygon(cv::Mat& image, const std::vector<cv::Point2f>& poly_points, const cv::Scalar& color, int thickness = 1, bool is_closed = false);
 
