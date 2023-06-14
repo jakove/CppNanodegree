@@ -15,7 +15,7 @@ set(CMAKE_INCLUDE_CURRENT_DIR ON)
 find_package(Qt5 COMPONENTS Widgets REQUIRED)
 
 # potentionalle the OpenCV search path has to be reconfigured
-# find_package(OpenCV REQUIRED PATHS "/home/jakob/repos/build/")
+find_package(OpenCV REQUIRED PATHS "/workspace/opencv/build/")
 find_package(OpenCV REQUIRED PATHS)
 
 add_subdirectory("imageprocessing")
