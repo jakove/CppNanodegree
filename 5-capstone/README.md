@@ -2,6 +2,8 @@
 
 This repository contains my contribution for the capstone project of the [Udacity C++ Nanodegree Program](https://www.udacity.com/course/c-plus-plus-nanodegree--nd213)
 
+**IMPORTANT** The dependencies and build instructions specifically for the UdacityVM can be fund under: [README_UdacityVM](README_UdacityVM) 
+
 
 ## 1. Dependencies for Running Locally
 The code has been tested on Ubuntu 20.04 with the following additional dependencies:
@@ -36,7 +38,7 @@ Furthermore, the application allows loading photos of Sudoku puzzles. The implem
 
 4. Detected sudoku by AI Sudoku Loader: 
 
-    <img src="./resources/images/documentation/detected.png" width=480 height=290 >
+    <img src="./resources/images/documentation/detected.png" width=480 height=290>
 
 
 
