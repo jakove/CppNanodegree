@@ -40,6 +40,7 @@ Furthermore, the application allows loading photos of Sudoku puzzles. The implem
 
     <img src="./resources/images/documentation/detected.png" width=480 height=290>
 
+    Example images are located in the build-folder: `images/test`
 
 
 ## 4. Projectstructure
